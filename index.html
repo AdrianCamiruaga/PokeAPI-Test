@@ -15,11 +15,13 @@
     <p><h1 align="center">Lista Pokémones</h1> </p> 
     <br><br>
     <div id="app" class="row">
-      <div class="col-md-6">
+      <div class="col-md-6" style="padding-left: 50px; padding-bottom: 30px;">
           <ul class="list-group" v-for="pokemon in pokemones">
               <a href="#" style="text-decoration: none; color:black" v-on:click="clickInfoPokemon">
                 <li class="list-group-item"> 
-                  <input type="checkbox" name="fav" id="fav"> {{ pokemon.name }}
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="form-check-input" name="fav" id="fav">
+                    {{ pokemon.name }}
                 </li>
                </a>
             </ul>
