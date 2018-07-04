@@ -25,11 +25,17 @@
             </ul>
         </div>
         <div class="col-md-1" ></div>
-        <!-- <div class="col-md-2" v-if="infoPokemon != 0" > -->
         <div class="login-card" v-if="cuadroInfoPokemon">
             <span align="center" v-html="nombrePokemon"></span>
             <img class="imgPokemon profile-img-card" align="center" :src="srcImg" alt="">
-            
+
+
+            <p> <strong>Peso:</strong> <i>            {{ pesoPokemon }} kg  </i> </p>
+            <p> <strong>Altura:</strong> <i>          {{ alturaPokemon }} m </i> </p>
+            <p> <strong>Tipo:</strong> <i>            {{ tipoPokemon }}  </i> </p>
+            <p> <strong>Experiencia Base:</strong> <i>{{ experienciaBasePokemon }}  </i> </p>
+            <p> <strong>Habilidades:</strong> <i>     {{ habilidadesPokemon }} </i> </p>
+            <p> <strong>Estadisticas:</strong> <i>    {{ estadisticasPokemon }} </i> </p>
         </div>
 
 
