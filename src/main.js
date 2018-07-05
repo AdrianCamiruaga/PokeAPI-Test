@@ -24,13 +24,30 @@ new Vue({
     clickInfoPokemon: function(event)
     {
       this.limpiarAtributos();
-      let url = 'https://pokeapi.co/api/v2/pokemon-form/'+event.toElement.innerText.trim();
+      let url = "";
+      if (event.toElement.value == 0)
+      {
+        url = 'https://pokeapi.co/api/v2/pokemon-form/'+event.toElement.innerText.trim();
+      }
+      else{
+        url = 'https://pokeapi.co/api/v2/pokemon-form/'+event.toElement.value.trim();
+      }
+      console.log(event.toElement.value, url);
+      
       axios.get(url).then(response =>
       {        
         this.srcImg = response.data.sprites.front_default;
         this.nombrePokemon = "<h3>"+response.data.name+"</h3>";
       });
-      url = 'https://pokeapi.co/api/v2/pokemon/'+event.toElement.innerText.trim();
+
+      if(event.toElement.value == 0)
+      {
+        url = 'https://pokeapi.co/api/v2/pokemon/'+event.toElement.innerText.trim();
+      }
+      else{
+        url = 'https://pokeapi.co/api/v2/pokemon/'+event.toElement.value.trim();
+      }
+
       axios.get(url).then(response =>
       {
         this.experienciaBasePokemon = response.data.base_experience;
