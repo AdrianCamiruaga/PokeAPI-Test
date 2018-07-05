@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios';
 
+
 new Vue({
   el: '#app',
   data:{
@@ -25,14 +26,14 @@ new Vue({
     {
       this.limpiarAtributos();
       let url = "";
-      if (event.toElement.value == 0)
+      if (typeof(event.toElement.value) == "number")
       {
         url = 'https://pokeapi.co/api/v2/pokemon-form/'+event.toElement.innerText.trim();
       }
       else{
         url = 'https://pokeapi.co/api/v2/pokemon-form/'+event.toElement.value.trim();
       }
-      console.log(event.toElement.value, url);
+      //console.log(event.toElement.value, url);
       
       axios.get(url).then(response =>
       {        
@@ -95,6 +96,7 @@ new Vue({
   computed: 
   {
     numeroFavoritos: function() {
+      localStorage.setItem("pokemonesFavoritosList", this.pokemonesFavoritosList);
       return this.pokemonesFavoritosList.length;
     }
   },
