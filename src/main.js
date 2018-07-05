@@ -13,7 +13,8 @@ new Vue({
         alturaPokemon: '',
         tipoPokemon: '',
         experienciaBasePokemon: '',
-        cuadroInfoPokemon: false
+        cuadroInfoPokemon: false,
+        pokemonesFavoritosList: []
   },
   methods:{
     numRandom : function()
@@ -72,6 +73,12 @@ new Vue({
       this.habilidadesPokemon = "";
       this.estadisticasPokemon = "";
       this.experienciaBase = "";
+    }
+  },
+  computed: 
+  {
+    numeroFavoritos: function() {
+      return this.pokemonesFavoritosList.length;
     }
   },
   mounted(){

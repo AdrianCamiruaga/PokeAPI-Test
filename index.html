@@ -11,38 +11,56 @@
     <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
-    <br>
-    <p><h1 align="center">Lista Pokémones</h1> </p> 
-    <br><br>
-    <div id="app" class="row">
-      <div class="col-md-6" style="padding-left: 50px; padding-bottom: 30px;">
-          <ul class="list-group" v-for="pokemon in pokemones">
-              <a href="#" style="text-decoration: none; color:black" v-on:click="clickInfoPokemon">
-                <li class="list-group-item"> 
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="form-check-input" name="fav" id="fav">
-                    {{ pokemon.name }}
-                </li>
-               </a>
-            </ul>
-        </div>
-        <div class="col-md-1" ></div>
-        <div class="login-card" v-if="cuadroInfoPokemon">
-            <span align="center" v-html="nombrePokemon"></span>
-            <img class="imgPokemon profile-img-card" align="center" :src="srcImg" alt="">
+    <div id="app" >
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="./">PokemonApp</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText" style="padding-left: 800px">
+                      <ul class="navbar-nav mr-auto">
+                      </ul>
+                      <span class="navbar-brand" >
+                            <a class="nav-link" style="color:black" href="#">Favoritos {{ numeroFavoritos }} <span class="sr-only">(current)</span></a>
+                      </span>
+                    </div>
+                  </nav>
 
 
-            <p> <strong>Peso:</strong> <i>            {{ pesoPokemon }} kg  </i> </p>
-            <p> <strong>Altura:</strong> <i>          {{ alturaPokemon }} m </i> </p>
-            <p> <strong>Tipo:</strong> <i>            {{ tipoPokemon }}  </i> </p>
-            <p> <strong>Experiencia Base:</strong> <i>{{ experienciaBasePokemon }}  </i> </p>
-            <p> <strong>Habilidades:</strong> <i>     {{ habilidadesPokemon }} </i> </p>
-            <p> <strong>Estadisticas:</strong> <i>    {{ estadisticasPokemon }} </i> </p>
-        </div>
-
+        <br>
+        <p><h1 align="center">Lista Pokémones</h1> </p> 
+        <br><br>
+      <div class="row" >
+            <div class="col-md-6" style="padding-left: 50px; padding-bottom: 30px;">
+                <h6 align="center">
+                    Chequea tus pokemones favoritos o da click para ver más información.
+                </h6>
+                <ul class="list-group" v-for="pokemon in pokemones">
+                    <a href="#" style="text-decoration: none; color:black" v-on:click="clickInfoPokemon">
+                        <li class="list-group-item"> 
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" class="form-check-input" name="fav" :value="pokemon.name" v-model="pokemonesFavoritosList">
+                            {{ pokemon.name }}
+                        </li>
+                    </a>
+                </ul>
+            </div>
+            <div class="col-md-1" ></div>
+            <div class="login-card" v-if="cuadroInfoPokemon">
+                <span align="center" v-html="nombrePokemon"></span>
+                <img class="imgPokemon profile-img-card" align="center" :src="srcImg" alt="">
+          
+                <p> <strong>Peso:</strong> <i>            {{ pesoPokemon }} kg  </i> </p>
+                <p> <strong>Altura:</strong> <i>          {{ alturaPokemon }} m </i> </p>
+                <p> <strong>Tipo:</strong> <i>            {{ tipoPokemon }}  </i> </p>
+                <p> <strong>Experiencia Base:</strong> <i>{{ experienciaBasePokemon }}  </i> </p>
+                <p> <strong>Habilidades:</strong> <i>     {{ habilidadesPokemon }} </i> </p>
+                <p> <strong>Estadisticas:</strong> <i>    {{ estadisticasPokemon }} </i> </p>
+            </div>
+      </div>
 
             
-        </div>
     </div>
 
 </body>
