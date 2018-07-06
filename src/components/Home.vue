@@ -9,7 +9,7 @@
                     Chequea tus pokemones favoritos o da click para ver más información.
                 </h6>
                 <ul class="list-group" v-for="pokemon in pokemones" :key="pokemon.id">
-                    <a href="#" style="text-decoration: none; color:black" v-on:click="clickInfoPokemon">
+                    <a href="#" style="text-decoration: none; color:black; " v-on:click="clickInfoPokemon">
                         <li class="list-group-item"> 
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="checkbox" class="form-check-input" name="fav" :value="pokemon.name" v-model="pokemonesFavoritosList">
@@ -19,7 +19,7 @@
                 </ul>
             </div>
             <!-- <div class="col-md-1" ></div> -->
-            <div class="login-card" v-if="cuadroInfoPokemon" style="margin:0 auto 25px; ">
+            <div class="login-card" v-if="cuadroInfoPokemon" style="margin:0 auto 25px;height: 550px;">
                 <span align="center" v-html="nombrePokemon"></span>
                 <img class="imgPokemon profile-img-card" align="center" :src="srcImg" alt="">
           
@@ -158,7 +158,7 @@ export default {
 }
 .login-card{
     width: 370px;
-    height: 500px;
+    height: 550px;
     padding:20px 20px;
     background-color:#F7F7F7;
     /* margin:0 auto 25px; */
